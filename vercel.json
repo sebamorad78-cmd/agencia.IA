@@ -1,0 +1,14 @@
+{
+  "functions": {
+    "api/chat.js": {
+      "includeFiles": "demo/hotel.json",
+      "maxDuration": 30
+    }
+  },
+  "headers": [
+    {
+      "source": "/(.*)\\.(css|js)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }]
+    }
+  ]
+}

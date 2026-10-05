@@ -1,0 +1,14 @@
+# Evita que Hostinger (u otro hosting Apache) sirva CSS/JS viejos después de actualizar la web.
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html|css|js|json)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+  <FilesMatch "\.(webp|jpg|jpeg|png|svg|woff2?)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+</IfModule>
+
+# Bloquea el acceso directo a archivos del proyecto que no son parte de la web.
+<FilesMatch "^(package(-lock)?\.json|vercel\.json|README\.md)$">
+  Require all denied
+</FilesMatch>

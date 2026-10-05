@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demo Hotel · CFMTS Labs</title>
+  <meta name="description" content="Probá en vivo el agente de WhatsApp para hoteles de CFMTS Labs.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css?v=20261005">
+  <link rel="stylesheet" href="demo.css?v=20261005">
+</head>
+<body class="demo-page">
+  <header class="nav nav--solid">
+    <a class="brand" href="../index.html">CFMTS<span>Labs</span></a>
+    <a class="btn btn--ghost btn--sm" href="../index.html#contacto">Quiero esto en mi hotel</a>
+  </header>
+
+  <main class="demo">
+    <section class="demo__intro">
+      <p class="eyebrow">Demo en vivo</p>
+      <h1>Escribile al hotel como si fueras un huésped.</h1>
+      <p class="lead">Este es el asistente de WhatsApp que instalamos en hoteles. Preguntá precios, cochera o mascotas, pedí una reserva o escribí en portugués o inglés.</p>
+      <ul class="demo__tips">
+        <li>“Hola, ¿tienen lugar del 10 al 15 de enero para 2?”</li>
+        <li>“Olá! Aceitam cachorro?”</li>
+        <li>“¿Cuánto sale la familiar con cochera por 4 noches?”</li>
+      </ul>
+      <p class="demo__notice" id="hotel-aviso">Hotel ficticio creado para la demo. Tarifas de ejemplo.</p>
+    </section>
+
+    <section class="phone" aria-label="Chat de WhatsApp del hotel">
+      <div class="phone__top">
+        <div class="phone__avatar" aria-hidden="true">BA</div>
+        <div>
+          <strong id="hotel-nombre">Hotel Brisa Atlántica</strong>
+          <span class="phone__status" id="mode-badge">conectando…</span>
+        </div>
+      </div>
+      <div class="chat" id="chat" role="log" aria-live="polite"></div>
+      <div class="chips" id="chips">
+        <button type="button">¿Cuánto sale por noche?</button>
+        <button type="button">Quiero reservar</button>
+        <button type="button">¿Tienen cochera?</button>
+        <button type="button">Hablar con una persona</button>
+      </div>
+      <form class="composer" id="composer" autocomplete="off">
+        <input id="input" type="text" maxlength="1000" placeholder="Escribí un mensaje" aria-label="Mensaje">
+        <button type="submit" aria-label="Enviar">➤</button>
+      </form>
+    </section>
+
+    <aside class="panel" aria-label="Panel de recepción">
+      <p class="eyebrow">Lo que ve recepción</p>
+      <h2>Panel del hotel</h2>
+      <p class="panel__hint">Cuando el huésped completa sus datos, la solicitud llega ordenada. Recepción solo confirma.</p>
+      <div id="panel-items" class="panel__items">
+        <div class="panel__empty">Todavía no hay solicitudes. Pedí una reserva en el chat.</div>
+      </div>
+      <button type="button" class="btn btn--ghost btn--sm" id="reset">Reiniciar conversación</button>
+    </aside>
+  </main>
+
+  <script src="demo.js?v=20261005" defer></script>
+</body>
+</html>

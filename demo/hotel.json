@@ -1,0 +1,73 @@
+{
+  "nombre": "Hotel Brisa Atlántica",
+  "aviso": "Hotel ficticio creado para la demo de CFMTS Labs. Tarifas y servicios de ejemplo.",
+  "ciudad": "Mar del Plata",
+  "direccion": "Zona Playa Grande, a 2 cuadras del mar (dirección de ejemplo)",
+  "checkin": "14:00",
+  "checkout": "10:00",
+  "moneda": "ARS",
+  "temporada": "Tarifas de temporada alta (diciembre a marzo), por noche, con desayuno incluido.",
+  "habitaciones": [
+    {
+      "id": "doble",
+      "nombre": "Doble estándar",
+      "capacidad": 2,
+      "precio": 95000,
+      "detalle": "Cama matrimonial o 2 camas twin, vista interna."
+    },
+    {
+      "id": "doble_mar",
+      "nombre": "Doble vista al mar",
+      "capacidad": 2,
+      "precio": 125000,
+      "detalle": "Cama matrimonial, balcón con vista al mar."
+    },
+    {
+      "id": "triple",
+      "nombre": "Triple",
+      "capacidad": 3,
+      "precio": 130000,
+      "detalle": "Cama matrimonial + 1 individual."
+    },
+    {
+      "id": "familiar",
+      "nombre": "Familiar",
+      "capacidad": 4,
+      "precio": 160000,
+      "detalle": "2 ambientes, ideal para familias con chicos."
+    }
+  ],
+  "servicios": {
+    "desayuno": "Desayuno buffet incluido, de 7:30 a 10:30.",
+    "cochera": "Cochera cubierta a 50 metros, $12.000 por noche, sujeta a disponibilidad.",
+    "mascotas": "Aceptamos mascotas pequeñas (hasta 10 kg) con aviso previo, $10.000 por estadía.",
+    "pileta": "Pileta climatizada cubierta, abierta de 9 a 21.",
+    "wifi": "Wi-Fi gratis en todo el hotel.",
+    "playa": "Convenio con balneario cercano: 15% de descuento en carpa.",
+    "estadia_minima": "En enero y febrero la estadía mínima es de 3 noches.",
+    "pagos": "Seña del 30% por transferencia o tarjeta para confirmar. El saldo se abona al ingresar.",
+    "cancelacion": "Cancelación sin cargo hasta 7 días antes del ingreso. Después se retiene la seña."
+  },
+  "servicios_pt": {
+    "desayuno": "Café da manhã buffet incluído, das 7h30 às 10h30.",
+    "cochera": "Garagem coberta a 50 metros, $12.000 por noite, sujeita a disponibilidade.",
+    "mascotas": "Aceitamos pets pequenos (até 10 kg) com aviso prévio, $10.000 por estadia.",
+    "pileta": "Piscina aquecida coberta, aberta das 9h às 21h.",
+    "wifi": "Wi-Fi grátis em todo o hotel.",
+    "playa": "Convênio com balneário próximo: 15% de desconto na barraca.",
+    "estadia_minima": "Em janeiro e fevereiro a estadia mínima é de 3 noites.",
+    "pagos": "Sinal de 30% por transferência ou cartão para confirmar. O restante é pago no check-in.",
+    "cancelacion": "Cancelamento grátis até 7 dias antes da entrada. Depois disso, o sinal é retido."
+  },
+  "servicios_en": {
+    "desayuno": "Buffet breakfast included, 7:30 to 10:30 am.",
+    "cochera": "Covered parking 50 meters away, $12,000 ARS per night, subject to availability.",
+    "mascotas": "Small pets (up to 10 kg) are welcome with prior notice, $10,000 ARS per stay.",
+    "pileta": "Indoor heated pool, open 9 am to 9 pm.",
+    "wifi": "Free Wi-Fi throughout the hotel.",
+    "playa": "Partner beach club nearby: 15% off beach tents.",
+    "estadia_minima": "In January and February the minimum stay is 3 nights.",
+    "pagos": "A 30% deposit by bank transfer or card confirms the booking. The balance is paid at check-in.",
+    "cancelacion": "Free cancellation up to 7 days before arrival. After that, the deposit is kept."
+  }
+}

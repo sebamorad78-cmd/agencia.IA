@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="es" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CFMTS Labs · Inteligencia artificial para hoteles de Mar del Plata</title>
+  <meta name="description" content="Asistentes de WhatsApp con IA para hoteles de Mar del Plata: responden a toda hora, en tres idiomas, y dejan la reserva lista para que recepción solo confirme.">
+  <meta property="og:title" content="CFMTS Labs · IA para hoteles de Mar del Plata">
+  <meta property="og:description" content="Tu hotel atiende WhatsApp a las 3 de la mañana. Aunque recepción duerma.">
+  <meta name="theme-color" content="#071a24">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23071a24'/%3E%3Ctext x='32' y='43' font-family='Georgia' font-style='italic' font-size='34' text-anchor='middle' fill='%23e9a35b'%3EL%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20261005">
+  <script>document.documentElement.classList.remove("no-js");</script>
+</head>
+<body>
+  <header class="nav" id="nav">
+    <a class="brand" href="#top">CFMTS<span>Labs</span></a>
+    <nav class="nav__links" aria-label="Principal">
+      <a href="#como">Cómo funciona</a>
+      <a href="#calculadora">Calculadora</a>
+      <a href="#planes">Cómo trabajamos</a>
+      <a href="#nosotros">Nosotros</a>
+      <a class="btn btn--primary btn--sm" href="demo/">Probar la demo</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <div>
+        <p class="eyebrow reveal">Inteligencia artificial para hotelería · Mar del Plata</p>
+        <h1 class="reveal">Tu hotel atiende WhatsApp a las 3 de la mañana. <em>Aunque recepción duerma.</em></h1>
+        <p class="lead reveal">Instalamos un asistente que responde tarifas, servicios y disponibilidad en segundos, en español, portugués e inglés, y deja cada reserva lista para que tu equipo solo tenga que confirmar.</p>
+        <div class="hero__cta reveal">
+          <a class="btn btn--primary" href="demo/">Probalo como si fueras un huésped</a>
+          <a class="btn btn--ghost" href="#calculadora">¿Cuánto estoy perdiendo?</a>
+        </div>
+        <div class="hero__meta reveal">
+          <span>Responde 24/7</span>
+          <span>Tres idiomas</span>
+          <span>Deriva a una persona cuando hace falta</span>
+        </div>
+      </div>
+
+      <div class="preview reveal" aria-hidden="true">
+        <div class="preview__bar"><b>Hotel · WhatsApp</b><span class="preview__clock">03:12</span></div>
+        <div class="preview__chat" id="preview-chat">
+          <div class="msg msg--guest">Hola! Tienen lugar del 10 al 14 de enero para 2? 🙏</div>
+          <div class="msg msg--bot">¡Hola! Para esas fechas tenemos la Doble vista al mar: 4 noches, desayuno incluido, total estimado $500.000. ¿A nombre de quién hago la solicitud?</div>
+          <div class="msg msg--guest">Lucía Fernández. Llevamos auto</div>
+          <div class="msg msg--bot">¡Genial, Lucía! Sumo cochera cubierta. Recepción te confirma a primera hora con los datos para la seña. 🌊</div>
+          <div class="msg msg--ticket">✦ Solicitud de reserva enviada a recepción</div>
+        </div>
+      </div>
+
+      <div class="sea" aria-hidden="true">
+        <svg viewBox="0 0 2400 300" preserveAspectRatio="none">
+          <path class="w1" d="M0 150 Q 150 90 300 150 T 600 150 T 900 150 T 1200 150 T 1500 150 T 1800 150 T 2100 150 T 2400 150"/>
+          <path class="w2" d="M0 200 Q 200 140 400 200 T 800 200 T 1200 200 T 1600 200 T 2000 200 T 2400 200"/>
+          <path class="w3" d="M0 250 Q 100 220 200 250 T 400 250 T 600 250 T 800 250 T 1000 250 T 1200 250 T 1400 250 T 1600 250 T 1800 250 T 2000 250 T 2200 250 T 2400 250"/>
+        </svg>
+      </div>
+    </section>
+
+    <div class="ribbon" aria-hidden="true">
+      <div class="ribbon__track">
+        <span>Consultas respondidas en segundos</span><span>Reservas ordenadas</span><span>Huéspedes de Brasil, Chile y Uruguay</span><span>Temporada sin mensajes perdidos</span>
+        <span>Consultas respondidas en segundos</span><span>Reservas ordenadas</span><span>Huéspedes de Brasil, Chile y Uruguay</span><span>Temporada sin mensajes perdidos</span>
+      </div>
+    </div>
+
+    <!-- Problema -->
+    <section class="section" id="problema">
+      <div class="section__head">
+        <p class="eyebrow reveal">El problema</p>
+        <h2 class="reveal">En temporada, cada mensaje sin responder es <em>una reserva que se va a otro hotel.</em></h2>
+      </div>
+      <div class="cards">
+        <article class="card reveal">
+          <div class="card__num">23:40</div>
+          <h3>La consulta llega cuando no hay nadie</h3>
+          <p>Muchos huéspedes planifican de noche. Si la respuesta llega a la mañana, ya reservaron en otro lado.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card__num">×40</div>
+          <h3>Las mismas preguntas, todo el día</h3>
+          <p>Precio, cochera, mascotas, desayuno. Recepción pierde horas contestando lo mismo en vez de atender al que está en el mostrador.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card__num">PT·EN</div>
+          <h3>El turista extranjero no espera</h3>
+          <p>Un brasileño que escribe en portugués y recibe una respuesta clara en su idioma tiene muchas más chances de reservar.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Cómo funciona -->
+    <section class="section" id="como">
+      <div class="section__head">
+        <p class="eyebrow reveal">Cómo funciona</p>
+        <h2 class="reveal">Un asistente que conoce tu hotel <em>como tu mejor recepcionista.</em></h2>
+        <p class="lead reveal">Lo entrenamos con tus tarifas, tus políticas y tu forma de hablar. Vive en el mismo WhatsApp que ya usan tus huéspedes.</p>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <h3>Responde al instante</h3>
+          <p>Tarifas, servicios, horarios, cómo llegar. A cualquier hora, sin hacer esperar.</p>
+        </div>
+        <div class="step reveal">
+          <h3>Toma la reserva</h3>
+          <p>Pide fechas, personas y habitación, calcula el total estimado y arma la solicitud.</p>
+        </div>
+        <div class="step reveal">
+          <h3>Deriva lo delicado</h3>
+          <p>Reclamos, grupos o casos especiales pasan a una persona de tu equipo, con todo el contexto.</p>
+        </div>
+        <div class="step reveal">
+          <h3>Recepción confirma</h3>
+          <p>Tu equipo recibe cada pedido ordenado y solo tiene que confirmar disponibilidad y seña.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Calculadora -->
+    <section class="section" id="calculadora">
+      <div class="section__head">
+        <p class="eyebrow reveal">Calculadora</p>
+        <h2 class="reveal">¿Cuánta plata se queda <em>sin responder</em> cada mes?</h2>
+        <p class="lead reveal">Mové los valores con los números de tu hotel. Es una estimación, pero suele abrir los ojos.</p>
+      </div>
+      <div class="calc reveal">
+        <form class="calc__inputs" id="calc" onsubmit="return false">
+          <div class="field">
+            <label for="c-consultas">Consultas por WhatsApp por día <output id="o-consultas">30</output></label>
+            <input type="range" id="c-consultas" min="5" max="200" step="5" value="30">
+          </div>
+          <div class="field">
+            <label for="c-tarde">Que llegan fuera de horario o se responden tarde <output id="o-tarde">35%</output></label>
+            <input type="range" id="c-tarde" min="5" max="80" step="5" value="35">
+          </div>
+          <div class="field">
+            <label for="c-conversion">De esas, cuántas habrían reservado <output id="o-conversion">8%</output></label>
+            <input type="range" id="c-conversion" min="1" max="30" step="1" value="8">
+            <small>Una parte de las consultas siempre son curiosos. Ponelo conservador.</small>
+          </div>
+          <div class="field">
+            <label for="c-ticket">Valor promedio de una reserva <output id="o-ticket">$380.000</output></label>
+            <input type="range" id="c-ticket" min="50000" max="1500000" step="10000" value="380000">
+          </div>
+        </form>
+        <div class="calc__result" aria-live="polite">
+          <p class="eyebrow">Ingresos en riesgo por mes</p>
+          <div class="calc__big" id="calc-total">$0</div>
+          <p><strong id="calc-reservas">0</strong> reservas que se pueden estar yendo a otro hotel.</p>
+          <p class="calc__note">Estimación orientativa: consultas por día × 30 × % fuera de horario × % que reservaría × valor de la reserva.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Planes -->
+    <section class="section" id="planes">
+      <div class="section__head">
+        <p class="eyebrow reveal">Cómo trabajamos</p>
+        <h2 class="reveal">Primero probás. <em>Después decidís.</em></h2>
+        <p class="lead reveal">Sin contratos largos ni cambios en tu sistema. Las cuentas y los datos quedan a nombre de tu hotel.</p>
+      </div>
+      <div class="offer">
+        <article class="card reveal">
+          <span class="tag">Paso 1 · Sin costo</span>
+          <h3>Diagnóstico</h3>
+          <p>Una charla de una hora para ver cuántas consultas recibís, qué preguntan y dónde se pierden reservas.</p>
+          <ul><li>Revisión de tu WhatsApp actual</li><li>Estimación de impacto</li><li>Propuesta concreta</li></ul>
+        </article>
+        <article class="card card--feature reveal">
+          <span class="tag">Paso 2 · Precio cerrado</span>
+          <h3>Piloto de 30 días</h3>
+          <p>Instalamos el asistente con tus datos reales y medimos juntos los resultados durante un mes.</p>
+          <ul><li>Configuración completa</li><li>Panel de solicitudes para recepción</li><li>Reporte de resultados al cierre</li></ul>
+        </article>
+        <article class="card reveal">
+          <span class="tag">Paso 3 · Mensual</span>
+          <h3>Acompañamiento</h3>
+          <p>Si los números cierran, seguimos con un abono mensual: ajustes de tarifas, mejoras y soporte local.</p>
+          <ul><li>Actualización de temporada</li><li>Mejoras continuas</li><li>Soporte en Mar del Plata</li></ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Nosotros -->
+    <section class="section" id="nosotros">
+      <div class="about">
+        <div class="initials reveal" aria-label="C F M T S">
+          <span>C</span><span>F</span><span>M</span><span>T</span><span>S</span>
+        </div>
+        <div>
+          <p class="eyebrow reveal">Nosotros</p>
+          <blockquote class="reveal">CFMTS son las iniciales de nuestra familia. Por eso trabajamos como trabaja una familia: cerca, en serio y dando la cara.</blockquote>
+          <p class="reveal">Somos de Mar del Plata y conocemos lo que es la temporada: el teléfono que no para, el WhatsApp explotado en enero y la necesidad de no dejar pasar ni una reserva. Usamos la mejor tecnología de inteligencia artificial disponible, pero la vara la ponen los resultados de tu hotel.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="section__head">
+        <p class="eyebrow reveal">Preguntas frecuentes</p>
+        <h2 class="reveal">Lo que nos suelen preguntar.</h2>
+      </div>
+      <div class="faq reveal">
+        <details>
+          <summary>¿Reemplaza a mi equipo de recepción?</summary>
+          <p>No. Se encarga de las preguntas repetidas y de ordenar las reservas para que tu equipo dedique su tiempo a confirmar y a atender bien a quien ya está en el hotel. Cualquier caso delicado pasa a una persona.</p>
+        </details>
+        <details>
+          <summary>¿Qué pasa si la IA no sabe algo?</summary>
+          <p>Está configurada para responder solo con la información de tu hotel. Si no sabe algo, lo dice y deriva la consulta a recepción, en vez de inventar.</p>
+        </details>
+        <details>
+          <summary>¿Tengo que cambiar mi sistema o mi número?</summary>
+          <p>No necesitás cambiar tu sistema de reservas. Trabajamos con WhatsApp Business y te explicamos en el diagnóstico la mejor opción para tu número.</p>
+        </details>
+        <details>
+          <summary>¿Quién es dueño de las cuentas y los datos?</summary>
+          <p>Tu hotel. Las cuentas se abren a tu nombre y tratamos los datos de los huéspedes según la Ley 25.326 de Protección de Datos Personales.</p>
+        </details>
+        <details>
+          <summary>¿Cuánto tarda en estar funcionando?</summary>
+          <p>Un piloto típico queda listo en una o dos semanas desde que tenemos tus tarifas y políticas. Ideal para llegar con todo a la temporada.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="section" id="contacto">
+      <div class="contact">
+        <div>
+          <p class="eyebrow reveal">Contacto</p>
+          <h2 class="display reveal">Llegá a la temporada <em>con el WhatsApp resuelto.</em></h2>
+          <p class="lead reveal">Contanos de tu hotel y coordinamos el diagnóstico sin costo. Te respondemos en el día.</p>
+        </div>
+        <form class="form reveal" id="contact-form">
+          <label>Tu nombre<input name="nombre" required maxlength="80"></label>
+          <label>Hotel o alojamiento<input name="hotel" required maxlength="100"></label>
+          <label>Habitaciones
+            <select name="habitaciones">
+              <option>Menos de 15</option>
+              <option>Entre 15 y 40</option>
+              <option>Más de 40</option>
+              <option>Alquiler temporario</option>
+            </select>
+          </label>
+          <label>¿Qué te gustaría resolver?<textarea name="mensaje" maxlength="800" placeholder="Ej: en enero no damos abasto con las consultas"></textarea></label>
+          <button class="btn btn--primary" type="submit">Enviar por WhatsApp</button>
+          <p class="form__note">Se abre WhatsApp con tu mensaje listo para enviar.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span><strong class="brand">CFMTS<span>Labs</span></strong> · Mar del Plata, Argentina</span>
+    <span>Inteligencia artificial aplicada a hotelería</span>
+  </footer>
+
+  <script src="main.js?v=20261005" defer></script>
+</body>
+</html>
