@@ -4,3 +4,4 @@ node_modules/
 .env.local
 # Propuestas y acuerdos personalizados por hotel: quedan solo en tu compu
 kit-comercial/salida/*-piloto-*.pdf
+.netlify/

@@ -11,7 +11,10 @@ Sitio web de **CFMTS Labs**, agencia de inteligencia artificial para hotelería 
 | `index.html`, `styles.css`, `main.js` | Landing de la agencia: propuesta, calculadora de reservas perdidas, cómo trabajamos, FAQ y contacto por WhatsApp. |
 | `demo/` | Demo del asistente de WhatsApp de un hotel **ficticio** (Hotel Brisa Atlántica) con panel de recepción. |
 | `demo/hotel.json` | Datos del hotel de la demo (tarifas, servicios, políticas). Para adaptar la demo a un hotel real, se edita este archivo. |
-| `api/chat.js` | Función serverless que conecta la demo con la IA de Claude. |
+| `lib/` | Lógica del asistente compartida por la web y WhatsApp (`agente.js`, `chat-web.js`, `whatsapp.js`). |
+| `netlify/functions/` | Funciones de Netlify: `/api/whatsapp` (webhook de WhatsApp) y `/api/chat` (chat de la demo web). |
+| `api/chat.js` | La misma función de chat, para Vercel. |
+| `docs/whatsapp.md` | Guía paso a paso para conectar el asistente a WhatsApp. |
 | `tests/` | Pruebas de la función (`npm test`). |
 | `assets/` | Logo (`brand/`) y tipografías propias (`fonts/`). |
 | `kit-comercial/` | Material interno de venta: tarjeta, propuesta, acuerdo, planilla y logos. No se publica. Ver su README. |
@@ -48,7 +51,11 @@ La función ya trae un freno básico contra abuso (largo de mensajes, cantidad p
 2. "Add new site → Import an existing project → GitHub" y elegir este repositorio.
 3. No hace falta cambiar nada: `netlify.toml` ya tiene la configuración. Tocar "Deploy".
 
-En Netlify la demo funciona en **modo demo** (la función de IA real está hecha para Vercel). El kit comercial queda bloqueado y no se publica.
+Con `ANTHROPIC_API_KEY` cargada en Netlify, la demo web responde con la IA real; sin ella, funciona en modo demo. El kit comercial y los archivos internos quedan bloqueados.
+
+## WhatsApp
+
+El asistente también responde en un número real de WhatsApp. Ver [`docs/whatsapp.md`](docs/whatsapp.md).
 
 ## Publicar en Hostinger u otro hosting estático
 
