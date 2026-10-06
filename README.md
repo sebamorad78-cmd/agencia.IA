@@ -11,6 +11,8 @@ Sitio web de **CFMTS Labs**, agencia de inteligencia artificial para hotelería 
 | `demo/hotel.json` | Datos del hotel de la demo (tarifas, servicios, políticas). Para adaptar la demo a un hotel real, se edita este archivo. |
 | `api/chat.js` | Función serverless que conecta la demo con la IA de Claude. |
 | `tests/` | Pruebas de la función (`npm test`). |
+| `assets/` | Logo (`brand/`) y tipografías propias (`fonts/`). |
+| `kit-comercial/` | Material interno de venta: tarjeta, propuesta, acuerdo, planilla y logos. No se publica. Ver su README. |
 
 ## Cómo funciona la demo
 
@@ -21,7 +23,7 @@ El indicador debajo del nombre del hotel muestra qué modo está activo.
 
 ## Antes de publicar
 
-1. **Número de WhatsApp:** completá `WHATSAPP` al principio de `main.js` (ej. `"5492231234567"`). Sin eso, el formulario de contacto no envía.
+1. **Número de WhatsApp:** ya configurado en `main.js`. Si cambia, se edita ahí.
 
 ## Publicar gratis en Vercel (recomendado)
 
@@ -40,7 +42,7 @@ La función ya trae un freno básico contra abuso (largo de mensajes, cantidad p
 
 ## Publicar en Hostinger u otro hosting estático
 
-Subí todos los archivos por FTP o el administrador de archivos. La landing funciona completa y la demo funciona en **modo demo** (la carpeta `api/` necesita Vercel para funcionar). El `.htaccess` evita que el hosting sirva versiones viejas de CSS/JS.
+Subí todos los archivos por FTP o el administrador de archivos, **menos la carpeta `kit-comercial/`**. La landing funciona completa y la demo funciona en **modo demo** (la carpeta `api/` necesita Vercel para funcionar). El `.htaccess` evita que el hosting sirva versiones viejas de CSS/JS.
 
 ## Desarrollo local
 

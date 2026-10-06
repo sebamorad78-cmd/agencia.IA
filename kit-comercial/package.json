@@ -1,0 +1,11 @@
+{
+  "name": "cfmts-kit-comercial",
+  "private": true,
+  "description": "Genera los PDF e imágenes del kit comercial de CFMTS Labs",
+  "scripts": {
+    "generar": "node generar.cjs"
+  },
+  "devDependencies": {
+    "qrcode": "^1.5.4"
+  }
+}

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Propuesta de piloto · CFMTS Labs</title>
+<link rel="stylesheet" href="kit.css">
+<style>
+  @page { size: A4; margin: 0; }
+  .page { width: 210mm; height: 297mm; padding: 16mm 17mm 14mm; display: flex; flex-direction: column; position: relative; }
+
+  header { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 7mm; border-bottom: .6pt solid var(--line); }
+  header .meta { text-align: right; font-size: 8pt; color: var(--muted); line-height: 1.6; }
+  header .meta b { color: var(--ink); font-weight: 600; }
+
+  .hero { padding: 9mm 0 7mm; display: grid; grid-template-columns: 1.35fr 1fr; gap: 10mm; align-items: end; }
+  .hero h1 { font-family: var(--serif); font-weight: 400; font-size: 31pt; line-height: 1; margin-top: 3mm; letter-spacing: -.01em; }
+  .hero h1 em { color: var(--sand-dark); }
+  .hero p { color: var(--muted); font-size: 9.6pt; }
+
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm 10mm; }
+  h2 { font-size: 7pt; letter-spacing: .18em; text-transform: uppercase; color: var(--sand-dark); font-weight: 700; margin-bottom: 2.4mm; display: flex; align-items: center; gap: 2.5mm; }
+  h2 span { font-family: var(--serif); font-size: 12pt; color: var(--ink); letter-spacing: 0; }
+  ul { list-style: none; display: grid; gap: 1.6mm; }
+  li { padding-left: 4.5mm; position: relative; }
+  li::before { content: ""; position: absolute; left: 0; top: 2.1mm; width: 2mm; height: .9pt; background: var(--sand); }
+
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 7mm; border-top: .6pt solid var(--ink); }
+  .step { padding: 3mm 3mm 0 0; }
+  .step b { display: block; font-size: 7pt; letter-spacing: .14em; text-transform: uppercase; color: var(--sand-dark); }
+  .step .t { font-family: var(--serif); font-size: 13pt; line-height: 1.1; margin: 1.2mm 0; }
+  .step p { font-size: 8.2pt; color: var(--muted); }
+
+  table { width: 100%; border-collapse: collapse; margin-top: 7mm; font-size: 9pt; }
+  th { text-align: left; font-size: 6.8pt; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 600; padding: 0 0 2mm; border-bottom: .6pt solid var(--ink); }
+  td { padding: 2.6mm 0; border-bottom: .6pt solid var(--line); vertical-align: top; }
+  td.price { font-family: var(--serif); font-size: 15pt; white-space: nowrap; padding-right: 6mm; }
+  td:first-child { font-weight: 600; width: 46mm; padding-right: 4mm; }
+  td .muted { font-size: 8.2pt; }
+
+  .promise { margin-top: 7mm; background: var(--navy); color: #f3ece0; border-radius: 3mm; padding: 6mm 7mm; display: grid; grid-template-columns: auto 1fr; gap: 6mm; align-items: center; }
+  .promise .serif { font-size: 17pt; line-height: 1.1; color: var(--sand); }
+  .promise p { font-size: 9pt; color: #c9d4d9; }
+
+  footer { margin-top: auto; padding-top: 5mm; border-top: .6pt solid var(--line); display: flex; justify-content: space-between; font-size: 8pt; color: var(--muted); }
+  footer b { color: var(--ink); }
+  .rule { position: absolute; left: 0; bottom: 0; height: 2.2mm; width: 100%; background: linear-gradient(90deg, #e9a35b, #d9aa68, #bdb27a, #93bc98, #5fc6c0); }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="brandmark"><img src="../../assets/brand/isotipo.svg" alt=""><span><b>CFMTS</b><i>Labs</i></span></div>
+    <div class="meta">
+      Propuesta para <b>{{hotel}}</b><br>
+      Atención: {{contacto}}<br>
+      Fecha: {{fecha}} · Válida por 15 días
+    </div>
+  </header>
+
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Propuesta de piloto · 30 días</p>
+      <h1>Que ninguna consulta de <em>{{hotel_corto}}</em> quede sin respuesta esta temporada.</h1>
+    </div>
+    <p>Un asistente que responde el WhatsApp del hotel a cualquier hora, en español, portugués e inglés, y deja cada solicitud de reserva lista para que el equipo solo confirme.</p>
+  </section>
+
+  <div class="grid">
+    <section>
+      <h2><span>01</span> Lo que vimos</h2>
+      <ul>
+        <li>{{diagnostico_1}}</li>
+        <li>{{diagnostico_2}}</li>
+        <li>{{diagnostico_3}}</li>
+      </ul>
+    </section>
+    <section>
+      <h2><span>02</span> Lo que incluye el piloto</h2>
+      <ul>
+        <li>Asistente configurado con las tarifas, servicios y políticas del hotel.</li>
+        <li>Atención 24/7 en español, portugués e inglés, con el tono del hotel.</li>
+        <li>Solicitudes de reserva ordenadas: fechas, personas, habitación y total.</li>
+        <li>Derivación inmediata a una persona en reclamos y casos especiales.</li>
+        <li>Reporte de resultados al cierre del mes.</li>
+      </ul>
+    </section>
+  </div>
+
+  <div class="steps">
+    <div class="step"><b>Semana 1</b><div class="t">Configuración</div><p>Cargamos la información del hotel y lo probamos a fondo.</p></div>
+    <div class="step"><b>Semana 2</b><div class="t">Prueba interna</div><p>Lo usa el equipo y ajustamos tono y respuestas.</p></div>
+    <div class="step"><b>Semanas 3 y 4</b><div class="t">En vivo</div><p>Atiende huéspedes reales. Revisamos conversaciones cada pocos días.</p></div>
+    <div class="step"><b>Día 30</b><div class="t">Resultados</div><p>Consultas respondidas, fuera de horario y reservas generadas.</p></div>
+  </div>
+
+  <table>
+    <thead><tr><th>Concepto</th><th>Inversión</th><th>Detalle</th></tr></thead>
+    <tbody>
+      <tr><td>Piloto de 30 días</td><td class="price">USD {{precio_piloto}}</td><td>En pesos al tipo de cambio del día de pago. 50% al comenzar y 50% con el asistente funcionando.</td></tr>
+      <tr><td>Acompañamiento mensual<br><span class="muted">Opcional, después del piloto</span></td><td class="price">USD {{abono}}<span class="muted"> /mes</span></td><td>Mantenimiento, actualización de tarifas por temporada, mejoras y soporte en Mar del Plata.</td></tr>
+      <tr><td>Herramientas</td><td class="price">Según uso</td><td>WhatsApp Business e IA, a nombre del hotel y pagadas directamente a cada proveedor. Estimado: USD 10 a 40 por mes.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="promise">
+    <div class="serif">Sin permanencia.</div>
+    <p>Si al cierre del piloto los resultados no justifican seguir, terminamos ahí. Las cuentas, las conversaciones y los datos de los huéspedes son siempre del hotel.</p>
+  </div>
+
+  <footer>
+    <span>{{firma_pie}} · {{ciudad}}</span>
+    <span>WhatsApp {{whatsapp_visible}}{{email_pie}}</span>
+  </footer>
+  <div class="rule"></div>
+</div>
+</body>
+</html>

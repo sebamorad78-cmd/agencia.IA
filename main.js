@@ -4,7 +4,7 @@
 
   // ⚙️ Completá con tu número de WhatsApp: código de país + área + número, sin "+" ni espacios.
   // Ejemplo para Mar del Plata: "5492231234567"
-  var WHATSAPP = "";
+  var WHATSAPP = "5492268516801";
 
   function safe(fn, name) {
     try { fn(); } catch (e) { console.error("[cfmts] " + name, e); }

@@ -1,0 +1,31 @@
+/* CFMTS Labs — estilos de impresión del kit comercial */
+@import url("../../assets/fonts/fonts.css");
+
+:root {
+  --navy: #071a24;
+  --navy-2: #0e2c3b;
+  --sand: #e9a35b;
+  --sand-dark: #b8742f;
+  --sea: #2f8f8a;
+  --ink: #12232c;
+  --muted: #5b6b73;
+  --line: #dfd8cc;
+  --paper: #fbf8f3;
+  --serif: "Instrument Serif", Georgia, serif;
+  --sans: "Manrope", "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { font-family: var(--sans); color: var(--ink); background: #fff; font-size: 9.6pt; line-height: 1.5; }
+
+.brandmark { display: flex; align-items: center; gap: 3mm; text-decoration: none; color: inherit; }
+.brandmark img { width: 9mm; height: 9mm; }
+.brandmark span { display: inline-flex; align-items: baseline; }
+.brandmark b { font-weight: 700; letter-spacing: .12em; font-size: 11pt; }
+.brandmark i { font-family: var(--serif); font-size: 14pt; color: var(--sand-dark); margin-left: 1mm; letter-spacing: 0; }
+
+.eyebrow { text-transform: uppercase; letter-spacing: .18em; font-size: 6.6pt; font-weight: 700; color: var(--sand-dark); }
+.serif { font-family: var(--serif); font-weight: 400; }
+.muted { color: var(--muted); }
+.blank { display: inline-block; min-width: 50mm; border-bottom: .6pt solid var(--ink); }

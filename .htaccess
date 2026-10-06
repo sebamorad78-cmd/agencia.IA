@@ -12,3 +12,6 @@
 <FilesMatch "^(package(-lock)?\.json|vercel\.json|README\.md)$">
   Require all denied
 </FilesMatch>
+
+# El kit comercial es material interno: no se publica.
+RedirectMatch 404 ^/kit-comercial(/|$)

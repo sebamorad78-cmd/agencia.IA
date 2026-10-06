@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Acuerdo de piloto · CFMTS Labs</title>
+<link rel="stylesheet" href="kit.css">
+<style>
+  @page { size: A4; margin: 18mm 20mm 18mm; }
+  body { font-size: 9.4pt; line-height: 1.55; }
+  header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 6mm; border-bottom: .6pt solid var(--line); margin-bottom: 7mm; }
+  header .meta { font-size: 8pt; color: var(--muted); text-align: right; }
+  h1 { font-family: var(--serif); font-weight: 400; font-size: 24pt; line-height: 1.05; margin: 2mm 0 5mm; }
+  .parties { display: grid; grid-template-columns: 1fr 1fr; gap: 8mm; margin-bottom: 6mm; padding: 4.5mm 5mm; background: var(--paper); border-radius: 2mm; }
+  .parties div { display: grid; gap: 1.6mm; }
+  .parties b { font-size: 6.8pt; letter-spacing: .16em; text-transform: uppercase; color: var(--sand-dark); }
+  .field { display: flex; gap: 2mm; align-items: baseline; }
+  .field em { font-style: normal; color: var(--muted); white-space: nowrap; }
+  .field span { flex: 1; border-bottom: .6pt solid #9aa7ad; min-height: 4.5mm; }
+  .field span.filled { border-bottom-color: transparent; font-weight: 600; }
+  .clause { margin-bottom: 3.6mm; break-inside: avoid; }
+  .clause h2 { font-size: 9.4pt; font-weight: 700; margin-bottom: 1mm; }
+  .clause h2 span { color: var(--sand-dark); margin-right: 2mm; }
+  .clause p + p, .clause ul { margin-top: 1.2mm; }
+  .clause ul { padding-left: 5mm; }
+  .signs { display: grid; grid-template-columns: 1fr 1fr; gap: 14mm; margin-top: 16mm; break-inside: avoid; }
+  .signs div { border-top: .6pt solid var(--ink); padding-top: 2mm; font-size: 8.4pt; display: grid; gap: 1mm; }
+  .note { margin-top: 10mm; font-size: 7.4pt; color: var(--muted); border-top: .6pt solid var(--line); padding-top: 3mm; }
+</style>
+</head>
+<body>
+  <header>
+    <div class="brandmark"><img src="../../assets/brand/isotipo.svg" alt=""><span><b>CFMTS</b><i>Labs</i></span></div>
+    <div class="meta">Mar del Plata, {{fecha}}</div>
+  </header>
+
+  <p class="eyebrow">Acuerdo de servicio</p>
+  <h1>Piloto de asistente de WhatsApp por 30 días</h1>
+
+  <section class="parties">
+    <div>
+      <b>El prestador</b>
+      <div class="field"><em>Nombre:</em><span class="{{cls_nombre}}">{{nombre_campo}}</span></div>
+      <div class="field"><em>CUIT:</em><span></span></div>
+      <div class="field"><em>Que opera como:</em><span class="filled">CFMTS Labs</span></div>
+    </div>
+    <div>
+      <b>El hotel</b>
+      <div class="field"><em>Establecimiento:</em><span class="{{cls_hotel}}">{{hotel_campo}}</span></div>
+      <div class="field"><em>Razón social y CUIT:</em><span></span></div>
+      <div class="field"><em>Representante:</em><span class="{{cls_contacto}}">{{contacto_campo}}</span></div>
+    </div>
+  </section>
+
+  <div class="clause"><h2><span>1.</span>Objeto</h2>
+    <p>CFMTS Labs configura y pone en funcionamiento un asistente virtual que responde consultas de huéspedes por WhatsApp en nombre del hotel, con la información que el hotel provee, durante un período de prueba de 30 días.</p></div>
+
+  <div class="clause"><h2><span>2.</span>Alcance</h2>
+    <p>Incluye: configuración con tarifas, servicios y políticas del hotel; respuestas en español, portugués e inglés; armado de solicitudes de reserva para que el hotel las confirme; derivación a una persona del hotel en los casos que se acuerden; seguimiento de las conversaciones y un reporte de resultados al cierre.</p>
+    <p>No incluye: la confirmación de reservas ni el cobro de señas, que siguen a cargo del hotel; la integración con otros sistemas, salvo acuerdo por escrito.</p></div>
+
+  <div class="clause"><h2><span>3.</span>Plazo</h2>
+    <p>El piloto dura 30 días corridos desde que el asistente comienza a atender huéspedes reales. Las partes estiman tenerlo funcionando dentro de los 14 días posteriores a la entrega de la información del punto 5.</p></div>
+
+  <div class="clause"><h2><span>4.</span>Precio y forma de pago</h2>
+    <p>El piloto tiene un precio total de USD {{precio_piloto}}, pagadero en pesos al tipo de cambio oficial vendedor del día de pago: 50% al firmar este acuerdo y 50% cuando el asistente comienza a atender huéspedes reales.</p>
+    <p>Los costos de las herramientas (WhatsApp Business y el servicio de inteligencia artificial) se contratan a nombre del hotel y los paga el hotel directamente a cada proveedor.</p></div>
+
+  <div class="clause"><h2><span>5.</span>Compromisos del hotel</h2>
+    <ul>
+      <li>Entregar tarifas, servicios y políticas vigentes, y avisar cualquier cambio.</li>
+      <li>Designar a una persona de contacto para recibir solicitudes y derivaciones.</li>
+      <li>Confirmar las reservas y responder las derivaciones en sus horarios de atención.</li>
+    </ul></div>
+
+  <div class="clause"><h2><span>6.</span>Compromisos de CFMTS Labs</h2>
+    <ul>
+      <li>Configurar el asistente para que responda solo con la información provista por el hotel.</li>
+      <li>Revisar periódicamente las conversaciones y corregir respuestas que no sean adecuadas.</li>
+      <li>Responder consultas del hotel sobre el servicio dentro de las 24 horas hábiles.</li>
+    </ul></div>
+
+  <div class="clause"><h2><span>7.</span>Datos personales y propiedad</h2>
+    <p>Las cuentas, las conversaciones y los datos de los huéspedes son propiedad del hotel, que es responsable de la base de datos. CFMTS Labs accede a ellos solo para prestar este servicio, los trata conforme a la Ley 25.326 de Protección de Datos Personales y no los usa para ningún otro fin. Al terminar el acuerdo, CFMTS Labs entrega al hotel los accesos y elimina las copias que tenga.</p></div>
+
+  <div class="clause"><h2><span>8.</span>Responsabilidad</h2>
+    <p>El asistente brinda información y arma solicitudes; la disponibilidad y las condiciones finales de cada reserva las confirma siempre el hotel. CFMTS Labs no responde por información desactualizada que el hotel no haya informado, ni por interrupciones de servicios de terceros. La responsabilidad de CFMTS Labs se limita al monto efectivamente pagado por el piloto.</p></div>
+
+  <div class="clause"><h2><span>9.</span>Confidencialidad</h2>
+    <p>Las partes mantienen en reserva la información comercial que conozcan con motivo de este acuerdo. CFMTS Labs puede mencionar al hotel como cliente solo con su autorización expresa.</p></div>
+
+  <div class="clause"><h2><span>10.</span>Finalización y continuidad</h2>
+    <p>Al terminar el piloto, el hotel decide libremente si continúa. Si continúa, el servicio mensual tiene un valor de USD {{abono}} por mes, en pesos, por mes adelantado, con preaviso de 30 días para darlo de baja. Si no continúa, no existe ninguna obligación adicional.</p></div>
+
+  <div class="clause"><h2><span>11.</span>Jurisdicción</h2>
+    <p>Para cualquier diferencia, las partes intentan primero resolverla de buena fe. De no lograrlo, se someten a los tribunales ordinarios de Mar del Plata.</p></div>
+
+  <div class="signs">
+    <div><span>Firma y aclaración</span><b>Por CFMTS Labs</b></div>
+    <div><span>Firma y aclaración</span><b>Por el hotel</b></div>
+  </div>
+
+  <p class="note">Modelo de referencia redactado en lenguaje simple. Antes del primer uso, conviene que lo revise un abogado o contador de confianza.</p>
+</body>
+</html>
