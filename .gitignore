@@ -5,3 +5,4 @@ node_modules/
 # Propuestas y acuerdos personalizados por hotel: quedan solo en tu compu
 kit-comercial/salida/*-piloto-*.pdf
 .netlify/
+kit-comercial/salida/planilla-prospectos-cargada.xlsx
