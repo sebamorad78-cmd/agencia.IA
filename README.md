@@ -1,5 +1,7 @@
 # CFMTS Labs
 
+Web publicada: **https://cfmtslabs.netlify.app** · Demo: **https://cfmtslabs.netlify.app/demo/**
+
 Sitio web de **CFMTS Labs**, agencia de inteligencia artificial para hotelería en Mar del Plata, y **demo en vivo** de un asistente de WhatsApp para hoteles.
 
 ## Qué hay en este repo

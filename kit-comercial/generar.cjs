@@ -80,6 +80,7 @@ async function main() {
     linea_email: datos.email ? `<span><em>Email</em>${esc(datos.email)}</span>` : "",
     linea_web: datos.web ? `<span><em>Web</em>${esc(datos.web)}</span>` : "",
     email_pie: datos.email ? ` · ${esc(datos.email)}` : "",
+    web_pie: datos.web ? `${esc(datos.web)} · ` : "",
     qr_whatsapp: qr,
     precio_piloto: String(datos.precio_piloto),
     abono: String(datos.abono),
