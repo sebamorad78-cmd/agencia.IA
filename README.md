@@ -15,6 +15,9 @@ Sitio web de **CFMTS Labs**, agencia de inteligencia artificial para hotelería 
 | `netlify/functions/` | Funciones de Netlify: `/api/whatsapp` (webhook de WhatsApp) y `/api/chat` (chat de la demo web). |
 | `api/chat.js` | La misma función de chat, para Vercel. |
 | `docs/whatsapp.md` | Guía paso a paso para conectar el asistente a WhatsApp. |
+| `privacidad.html`, `terminos.html` | Política de privacidad (Ley 25.326) y términos de uso. |
+| `alta/` | Formulario de alta de hotel: arma la configuración del asistente y llega por Netlify Forms. |
+| `reporte/` | Reporte mensual de resultados para cada hotel, listo para guardar en PDF. |
 | `tests/` | Pruebas de la función (`npm test`). |
 | `assets/` | Logo (`brand/`) y tipografías propias (`fonts/`). |
 | `kit-comercial/` | Material interno de venta: tarjeta, propuesta, acuerdo, planilla y logos. No se publica. Ver su README. |
@@ -52,6 +55,12 @@ La función ya trae un freno básico contra abuso (largo de mensajes, cantidad p
 3. No hace falta cambiar nada: `netlify.toml` ya tiene la configuración. Tocar "Deploy".
 
 Con `ANTHROPIC_API_KEY` cargada en Netlify, la demo web responde con la IA real; sin ella, funciona en modo demo. El kit comercial y los archivos internos quedan bloqueados.
+
+## Herramientas para clientes
+
+- **Alta de hotel:** `https://cfmtslabs.netlify.app/alta/`. Lo que envía el hotel aparece en Netlify → Forms → `alta-hotel`, con la configuración del asistente lista en el campo `configuracion`.
+- **Reporte mensual:** `https://cfmtslabs.netlify.app/reporte/`. Pide el mes y la clave (`REPORTE_CLAVE`, en las variables de entorno de Netlify). Con "Ver ejemplo" se muestra un reporte de muestra para las reuniones de venta.
+- **Datos:** el historial de conversaciones se borra solo a los 12 meses sin actividad (función programada `limpieza`).
 
 ## WhatsApp
 
