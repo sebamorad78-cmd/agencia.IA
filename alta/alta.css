@@ -1,0 +1,55 @@
+/* Formulario de alta de hotel */
+.alta { max-width: 860px; margin: 0 auto; padding: 112px 20px 80px; }
+.alta__intro h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(2rem, 4.4vw, 3.1rem); line-height: 1.05; margin: 12px 0 14px; }
+.alta__save { font-size: .8rem; color: var(--muted); }
+
+.alta form { display: grid; gap: 22px; margin-top: 36px; }
+.alta fieldset { border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; margin: 0; background: var(--bg-2); min-width: 0; }
+.alta legend { font-weight: 700; font-size: 1.05rem; padding: 0 8px; margin-left: -8px; }
+.alta legend span { font-family: var(--serif); font-weight: 400; color: var(--accent); margin-right: 6px; }
+.alta .hint { color: var(--muted); font-size: .88rem; margin: 4px 0 16px; }
+
+.alta label { display: grid; gap: 6px; font-size: .85rem; color: var(--muted); }
+.alta input, .alta select, .alta textarea {
+  width: 100%; min-width: 0;
+  background: var(--bg); color: var(--ink);
+  border: 1px solid var(--line); border-radius: 10px;
+  padding: 11px 12px; font: inherit; font-size: .95rem;
+}
+.alta textarea { min-height: 80px; resize: vertical; }
+.alta input:focus, .alta select:focus, .alta textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.alta input[aria-invalid="true"] { border-color: #e58a8a; }
+
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.span2 { grid-column: 1 / -1; }
+.mt { margin-top: 16px; }
+
+.rows { display: grid; gap: 12px; margin-bottom: 14px; }
+.row { display: grid; gap: 10px; align-items: end; padding: 14px; border: 1px dashed var(--line); border-radius: 12px; position: relative; }
+.row--hab { grid-template-columns: 2fr .8fr 1.2fr auto; }
+.row--hab .wide { grid-column: 1 / 4; }
+.row--faq { grid-template-columns: 1fr 1.4fr auto; }
+.row__del {
+  width: 36px; height: 36px; border-radius: 50%;
+  border: 1px solid var(--line); background: transparent; color: var(--muted);
+  font-size: 1.2rem; cursor: pointer; align-self: end;
+}
+.row__del:hover { color: var(--ink); border-color: var(--ink); }
+.row--hab .row__del { grid-column: 4; grid-row: 1; }
+
+.final { background: transparent; }
+.check { display: flex !important; gap: 10px; align-items: flex-start; font-size: .92rem !important; color: var(--ink) !important; }
+.check input { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--accent); flex: none; }
+.check a { color: var(--accent); }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
+.form-error { color: #f0a0a0; font-size: .9rem; min-height: 1.2em; margin: 12px 0 0; }
+
+.alta__ok { margin-top: 40px; padding: 40px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg-2); }
+.alta__ok h2 { font-family: var(--serif); font-weight: 400; font-size: 2rem; margin: 10px 0; }
+
+@media (max-width: 640px) {
+  .alta fieldset { padding: 18px 14px; }
+  .grid2, .row--hab, .row--faq { grid-template-columns: 1fr; }
+  .row--hab .wide { grid-column: auto; }
+  .row__del, .row--hab .row__del { position: absolute; top: 8px; right: 8px; grid-column: auto; grid-row: auto; width: 30px; height: 30px; }
+}

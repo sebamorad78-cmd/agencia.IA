@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { createHmac } from "node:crypto";
-import { crearProcesador, leerEventos, verificarFirma, crearClienteWhatsApp } from "../lib/whatsapp.js";
+import { crearProcesador, leerEventos, verificarFirma, crearClienteWhatsApp, detectarIdioma, limpiarDatosViejos } from "../lib/whatsapp.js";
 import { limpiarMensajes, separarMarcas } from "../lib/agente.js";
 
 function storeFalso() {
@@ -10,6 +10,8 @@ function storeFalso() {
     datos,
     async get(k) { return datos.has(k) ? structuredClone(datos.get(k)) : null; },
     async setJSON(k, v) { datos.set(k, structuredClone(v)); },
+    async list({ prefix = "" } = {}) { return { blobs: [...datos.keys()].filter((k) => k.startsWith(prefix)).map((key) => ({ key })) }; },
+    async delete(k) { datos.delete(k); },
   };
 }
 
@@ -182,4 +184,50 @@ test("el cliente de WhatsApp arma bien el pedido a Meta y reporta errores", asyn
   assert.equal(pedidos[0].opts.headers.Authorization, "Bearer T");
   assert.deepEqual(JSON.parse(pedidos[0].opts.body), { messaging_product: "whatsapp", to: "549", type: "text", text: { body: "Hola" } });
   await assert.rejects(() => wa.enviarTexto("malo", "x"), (e) => e.codigo === 131047);
+});
+
+test("detecta el idioma del mensaje", () => {
+  assert.equal(detectarIdioma("Olá! Vocês aceitam cachorro?"), "pt");
+  assert.equal(detectarIdioma("Hi, do you have a room?"), "en");
+  assert.equal(detectarIdioma("Hola, ¿tienen lugar?"), "es");
+});
+
+test("arma las estadísticas del mes para el reporte", async () => {
+  const store = storeFalso();
+  // 7 de octubre de 2026, 02:00 en Argentina (05:00 UTC): fuera de horario.
+  let ahora = Date.UTC(2026, 9, 7, 5, 0);
+  const procesar = crearProcesador({
+    store, whatsapp: whatsappFalso(), ahora: () => ahora,
+    preguntar: async (m) => (m.length === 1 ? "Hola" : 'Listo.\n[[RESERVA]]{"nombre":"Ana","total_estimado":250000}'),
+  });
+  await procesar(mensaje("s1", "Hola"));
+  ahora = Date.UTC(2026, 9, 7, 15, 0); // 12:00 en Argentina
+  await procesar(mensaje("s2", "Reservo para 2"));
+  await procesar(mensaje("s3", "Olá, tem quarto?", { de: "5511999999999" }));
+  await procesar(mensaje("s4", null, { formato: "audio" }));
+
+  const s = await store.get("stats/2026-10");
+  assert.equal(s.mensajes, 4);
+  assert.equal(s.conversaciones, 2);
+  assert.equal(s.fueraDeHorario, 1);
+  assert.equal(s.respondidos, 3);
+  assert.equal(s.reservas, 1);
+  assert.equal(s.valorReservas, 250000);
+  assert.equal(s.idiomas.pt, 1);
+  assert.equal(s.noTexto, 1);
+  assert.equal(s.porDia["07"], 4);
+});
+
+test("borra los datos viejos según la política de privacidad", async () => {
+  const store = storeFalso();
+  const hoy = Date.UTC(2026, 9, 7);
+  const dia = 24 * 3600_000;
+  await store.setJSON("msg/viejo", { t: hoy - 8 * dia });
+  await store.setJSON("msg/nuevo", { t: hoy - dia });
+  await store.setJSON("chat/inactivo", { mensajes: [], actualizado: hoy - 400 * dia });
+  await store.setJSON("chat/activo", { mensajes: [], actualizado: hoy - 10 * dia });
+  await store.setJSON("stats/2025-01", { mensajes: 3 });
+  const borrados = await limpiarDatosViejos({ store, ahora: () => hoy });
+  assert.equal(borrados, 2);
+  assert.deepEqual([...store.datos.keys()].sort(), ["chat/activo", "msg/nuevo", "stats/2025-01"]);
 });

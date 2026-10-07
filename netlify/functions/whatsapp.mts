@@ -2,9 +2,9 @@
 // La lógica vive en lib/whatsapp.js; este archivo solo la conecta con Netlify.
 
 import type { Config, Context } from "@netlify/functions";
-import { getDeployStore, getStore } from "@netlify/blobs";
 import Anthropic from "@anthropic-ai/sdk";
 import hotel from "../../demo/hotel.json" with { type: "json" };
+import { almacenWhatsApp } from "../../lib/almacen.js";
 import { crearPromptSistema, preguntarAlAsistente } from "../../lib/agente.js";
 import {
   VERSION_GRAPH_POR_DEFECTO,
@@ -13,12 +13,6 @@ import {
   leerEventos,
   verificarFirma,
 } from "../../lib/whatsapp.js";
-
-function almacenamiento() {
-  // Los datos reales solo se guardan desde la versión publicada; las pruebas usan un espacio aparte.
-  const opciones = { name: "whatsapp", consistency: "strong" as const };
-  return Netlify.context?.deploy?.context === "production" ? getStore(opciones) : getDeployStore(opciones);
-}
 
 export default async (req: Request, context: Context) => {
   const env = (clave: string) => Netlify.env.get(clave) || "";
@@ -65,10 +59,11 @@ export default async (req: Request, context: Context) => {
   const system = crearPromptSistema(hotel, "WhatsApp");
 
   const procesar = crearProcesador({
-    store: almacenamiento(),
+    store: almacenWhatsApp(),
     whatsapp,
     preguntar: (messages) => preguntarAlAsistente({ client: cliente, model: env("CLAUDE_MODEL"), system, messages }),
     avisosA: env("AVISOS_WHATSAPP"),
+    horario: hotel.horario_atencion || { desde: 9, hasta: 21 },
     plantillaAviso: env("WHATSAPP_PLANTILLA_AVISO"),
   });
 

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="../assets/brand/isotipo.svg" type="image/svg+xml">
+  <title>Reporte mensual · CFMTS Labs</title>
+  <link rel="stylesheet" href="../assets/fonts/fonts.css?v=20261007">
+  <link rel="stylesheet" href="reporte.css?v=20261007">
+</head>
+<body>
+  <form class="panel" id="panel" autocomplete="off">
+    <div class="panel__brand"><img src="../assets/brand/isotipo.svg" alt="" width="28" height="28"> Reporte mensual</div>
+    <label>Mes<input type="month" id="mes" required></label>
+    <label>Clave<input type="password" id="clave" placeholder="Clave de reportes"></label>
+    <button type="submit">Ver reporte</button>
+    <button type="button" id="ejemplo" class="sec">Ver ejemplo</button>
+    <button type="button" id="imprimir" class="sec" disabled>Guardar PDF</button>
+    <p class="panel__msg" id="msg" role="status"></p>
+  </form>
+
+  <article class="hoja" id="hoja" hidden>
+    <header class="hoja__top">
+      <div class="marca"><img src="../assets/brand/isotipo.svg" alt="" width="34" height="34"><span><b>CFMTS</b><i>Labs</i></span></div>
+      <div class="hoja__meta"><span id="r-hotel"></span><span id="r-mes"></span></div>
+    </header>
+
+    <section class="hoja__titulo">
+      <p class="eyebrow">Reporte mensual del asistente de WhatsApp</p>
+      <h1 id="r-titular"></h1>
+    </section>
+
+    <section class="kpis">
+      <div class="kpi kpi--destacado"><span class="kpi__n" id="k-mensajes"></span><span class="kpi__l">Mensajes atendidos</span></div>
+      <div class="kpi"><span class="kpi__n" id="k-conversaciones"></span><span class="kpi__l">Huéspedes distintos</span></div>
+      <div class="kpi"><span class="kpi__n" id="k-fuera"></span><span class="kpi__l" id="k-fuera-l">Fuera del horario de recepción</span></div>
+      <div class="kpi"><span class="kpi__n" id="k-reservas"></span><span class="kpi__l">Solicitudes de reserva</span></div>
+      <div class="kpi"><span class="kpi__n" id="k-valor"></span><span class="kpi__l">Valor estimado de esas reservas</span></div>
+      <div class="kpi"><span class="kpi__n" id="k-derivaciones"></span><span class="kpi__l">Derivadas a una persona</span></div>
+    </section>
+
+    <section class="bloque">
+      <h2>Mensajes por día</h2>
+      <div class="grafico" id="grafico" role="img"></div>
+      <table class="sr" id="tabla-dias"><caption>Mensajes por día</caption><thead><tr><th>Día</th><th>Mensajes</th></tr></thead><tbody></tbody></table>
+    </section>
+
+    <section class="bloque dos">
+      <div>
+        <h2>Idiomas</h2>
+        <div id="idiomas" class="idiomas"></div>
+      </div>
+      <div>
+        <h2>Lo más importante</h2>
+        <ul id="claves" class="claves"></ul>
+      </div>
+    </section>
+
+    <footer class="hoja__pie">
+      <span>Preparado por CFMTS Labs · Mar del Plata</span>
+      <span>Valores estimados a partir de las conversaciones del asistente. La confirmación de cada reserva la realiza el hotel.</span>
+    </footer>
+  </article>
+
+  <script src="reporte.js?v=20261007" defer></script>
+</body>
+</html>

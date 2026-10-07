@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="../assets/brand/isotipo.svg" type="image/svg+xml">
+  <title>Alta de hotel · CFMTS Labs</title>
+  <link rel="stylesheet" href="../assets/fonts/fonts.css?v=20261007">
+  <link rel="stylesheet" href="../styles.css?v=20261007">
+  <link rel="stylesheet" href="alta.css?v=20261007">
+</head>
+<body>
+  <header class="nav nav--solid">
+    <a class="brand" href="../index.html"><img src="../assets/brand/isotipo.svg" alt="" width="30" height="30">CFMTS<span>Labs</span></a>
+    <span class="alta__save" id="estado-borrador" aria-live="polite"></span>
+  </header>
+
+  <main class="alta">
+    <section class="alta__intro">
+      <p class="eyebrow">Alta de hotel</p>
+      <h1>Contanos cómo es tu hotel y nosotros configuramos el asistente.</h1>
+      <p class="lead">Lleva unos 10 minutos. Con esta información el asistente responde igual que tu mejor recepcionista. Lo que completes se guarda en este dispositivo mientras escribís, así que podés seguir después.</p>
+    </section>
+
+    <form name="alta-hotel" id="alta" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+      <input type="hidden" name="form-name" value="alta-hotel">
+      <input type="hidden" name="configuracion" id="configuracion">
+      <p hidden><label>No completar: <input name="bot-field"></label></p>
+
+      <fieldset>
+        <legend><span>01</span> El alojamiento</legend>
+        <div class="grid2">
+          <label>Nombre del alojamiento *<input name="hotel" required maxlength="100" placeholder="Hotel Costa Azul"></label>
+          <label>Tipo
+            <select name="tipo"><option>Hotel</option><option>Apart hotel</option><option>Hostel</option><option>Alquiler temporario</option><option>Otro</option></select>
+          </label>
+          <label>Dirección<input name="direccion" maxlength="150" placeholder="Calle 1234, Playa Grande"></label>
+          <label>Ciudad<input name="ciudad" value="Mar del Plata" maxlength="60"></label>
+          <label class="span2">Web o Instagram<input name="web" maxlength="150" placeholder="https://..."></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend><span>02</span> Contacto y avisos</legend>
+        <div class="grid2">
+          <label>Persona de contacto *<input name="contacto" required maxlength="80"></label>
+          <label>Cargo<input name="cargo" maxlength="60" placeholder="Dueño, encargado..."></label>
+          <label>WhatsApp para recibir reservas y avisos *<input name="whatsapp_avisos" required inputmode="tel" maxlength="30" placeholder="+54 9 223 ..."></label>
+          <label>Email<input name="email" type="email" maxlength="120"></label>
+          <label>Recepción atiende desde (hora)<input name="horario_desde" type="number" min="0" max="23" value="9"></label>
+          <label>Recepción atiende hasta (hora)<input name="horario_hasta" type="number" min="1" max="24" value="21"></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend><span>03</span> Habitaciones y tarifas</legend>
+        <p class="hint">Precio por noche en pesos, en temporada alta. Si cambia según la fecha, aclaralo en "temporada".</p>
+        <div id="habitaciones" class="rows"></div>
+        <button type="button" class="btn btn--ghost btn--sm" id="agregar-habitacion">+ Agregar habitación</button>
+        <label class="mt">Temporada y aclaraciones de tarifas<textarea name="temporada" maxlength="500" placeholder="Ej: tarifas de diciembre a marzo, con desayuno incluido. En febrero sube un 10%."></textarea></label>
+      </fieldset>
+
+      <fieldset>
+        <legend><span>04</span> Horarios y políticas</legend>
+        <div class="grid2">
+          <label>Check-in desde<input name="checkin" type="time" value="14:00"></label>
+          <label>Check-out hasta<input name="checkout" type="time" value="10:00"></label>
+          <label class="span2">Estadía mínima<input name="estadia_minima" maxlength="200" placeholder="Ej: 3 noches en enero y febrero"></label>
+          <label class="span2">Seña y formas de pago<textarea name="pagos" maxlength="400" placeholder="Ej: seña del 30% por transferencia, saldo al ingresar"></textarea></label>
+          <label class="span2">Política de cancelación<textarea name="cancelacion" maxlength="400" placeholder="Ej: sin cargo hasta 7 días antes"></textarea></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend><span>05</span> Servicios</legend>
+        <p class="hint">Completá solo lo que corresponda. Lo que quede vacío, el asistente lo deriva a recepción.</p>
+        <div class="grid2">
+          <label>Desayuno<input name="desayuno" maxlength="200" placeholder="Incluido, de 7:30 a 10:30"></label>
+          <label>Cochera<input name="cochera" maxlength="200" placeholder="Cubierta, $12.000 por noche"></label>
+          <label>Mascotas<input name="mascotas" maxlength="200" placeholder="Sí, hasta 10 kg con aviso"></label>
+          <label>Pileta<input name="pileta" maxlength="200" placeholder="Climatizada, de 9 a 21"></label>
+          <label>Wi-Fi<input name="wifi" maxlength="200" placeholder="Gratis en todo el hotel"></label>
+          <label>Playa y convenios<input name="playa" maxlength="200" placeholder="Descuento en balneario cercano"></label>
+          <label class="span2">Otros servicios<textarea name="otros_servicios" maxlength="500" placeholder="Ascensor, aire acondicionado, ropa de cama, etc."></textarea></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend><span>06</span> Preguntas frecuentes</legend>
+        <p class="hint">Las consultas que más reciben y cómo las responden hoy. Es lo que más mejora al asistente.</p>
+        <div id="preguntas" class="rows"></div>
+        <button type="button" class="btn btn--ghost btn--sm" id="agregar-pregunta">+ Agregar pregunta</button>
+      </fieldset>
+
+      <fieldset>
+        <legend><span>07</span> Cómo habla el hotel</legend>
+        <div class="grid2">
+          <label>Trato con los huéspedes
+            <select name="trato"><option value="voseo">Cercano, de "vos"</option><option value="usted">Formal, de "usted"</option></select>
+          </label>
+          <label>Emojis
+            <select name="emojis"><option value="pocos">Alguno, con moderación</option><option value="no">Sin emojis</option></select>
+          </label>
+          <label class="span2">Algo más sobre el estilo del hotel<textarea name="estilo" maxlength="400" placeholder="Ej: somos un hotel familiar, nos gusta recomendar restaurantes de la zona."></textarea></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="final">
+        <label class="check"><input type="checkbox" name="acepto" required> <span>Confirmo que la información es correcta y acepto la <a href="../privacidad.html" target="_blank" rel="noopener">política de privacidad</a>.</span></label>
+        <div class="actions">
+          <button type="submit" class="btn btn--primary">Enviar a CFMTS Labs</button>
+          <button type="button" class="btn btn--ghost" id="descargar">Descargar una copia</button>
+        </div>
+        <p class="form-error" id="error" role="alert"></p>
+      </fieldset>
+    </form>
+
+    <section class="alta__ok" id="ok" hidden>
+      <p class="eyebrow">Recibido</p>
+      <h2>¡Gracias! Ya tenemos todo para configurar tu asistente.</h2>
+      <p class="lead">Te escribimos por WhatsApp en las próximas 24 horas para mostrarte la primera versión.</p>
+      <a class="btn btn--ghost" href="../index.html">Volver al inicio</a>
+    </section>
+  </main>
+
+  <template id="tpl-habitacion">
+    <div class="row row--hab">
+      <label>Habitación<input data-k="nombre" maxlength="60" placeholder="Doble vista al mar"></label>
+      <label>Personas<input data-k="capacidad" type="number" min="1" max="20" placeholder="2"></label>
+      <label>Precio por noche ($)<input data-k="precio" type="number" min="0" step="500" placeholder="95000"></label>
+      <label class="wide">Detalle<input data-k="detalle" maxlength="160" placeholder="Cama matrimonial, balcón"></label>
+      <button type="button" class="row__del" aria-label="Quitar">×</button>
+    </div>
+  </template>
+  <template id="tpl-pregunta">
+    <div class="row row--faq">
+      <label>Pregunta<input data-k="pregunta" maxlength="160" placeholder="¿Tienen cuna para bebés?"></label>
+      <label>Respuesta<input data-k="respuesta" maxlength="300" placeholder="Sí, sin cargo, pedila al reservar"></label>
+      <button type="button" class="row__del" aria-label="Quitar">×</button>
+    </div>
+  </template>
+
+  <script src="alta.js?v=20261007" defer></script>
+</body>
+</html>

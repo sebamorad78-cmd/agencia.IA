@@ -1,0 +1,88 @@
+/* Reporte mensual: hoja A4 clara, pensada para imprimir o guardar como PDF */
+:root {
+  --navy: #071a24;
+  --ink: #12232c;
+  --muted: #5b6b73;
+  --line: #e4ded3;
+  --paper: #fbf8f3;
+  --sand: #b8742f;
+  --barra: #0b8f86;
+  --serif: "Instrument Serif", Georgia, serif;
+  --sans: "Manrope", "Segoe UI", sans-serif;
+}
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; background: #e9e5de; color: var(--ink); font-family: var(--sans); }
+
+/* Panel de controles (no se imprime) */
+.panel {
+  display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: end;
+  background: var(--navy); color: #f3ece0; padding: 16px clamp(16px, 4vw, 40px);
+}
+.panel__brand { display: flex; align-items: center; gap: 10px; font-weight: 700; margin-right: auto; align-self: center; }
+.panel__brand img { border-radius: 7px; }
+.panel label { display: grid; gap: 4px; font-size: .75rem; color: #9fb3bd; }
+.panel input { background: #0e2c3b; border: 1px solid rgba(243, 236, 224, .2); color: #f3ece0; border-radius: 8px; padding: 9px 10px; font: inherit; }
+.panel button { border: 0; border-radius: 999px; padding: 10px 18px; font: 600 .9rem var(--sans); background: #e9a35b; color: #1a1007; cursor: pointer; }
+.panel button.sec { background: transparent; color: #f3ece0; border: 1px solid rgba(243, 236, 224, .3); }
+.panel button:disabled { opacity: .4; cursor: default; }
+.panel__msg { flex-basis: 100%; margin: 0; font-size: .85rem; color: #f0c27b; min-height: 1.2em; }
+
+/* Hoja */
+.hoja {
+  width: 210mm; min-height: 297mm; margin: 24px auto; background: #fff;
+  padding: 16mm 17mm 14mm; display: flex; flex-direction: column; gap: 9mm;
+  box-shadow: 0 20px 60px -30px rgba(0, 0, 0, .4);
+}
+.hoja__top { display: flex; justify-content: space-between; align-items: center; padding-bottom: 6mm; border-bottom: 1px solid var(--line); }
+.marca { display: flex; align-items: center; gap: 10px; }
+.marca b { font-weight: 700; letter-spacing: .12em; }
+.marca i { font-family: var(--serif); color: var(--sand); font-size: 1.25em; margin-left: 4px; }
+.hoja__meta { display: grid; text-align: right; font-size: .85rem; color: var(--muted); }
+.hoja__meta span:first-child { color: var(--ink); font-weight: 700; }
+
+.eyebrow { text-transform: uppercase; letter-spacing: .16em; font-size: .68rem; font-weight: 700; color: var(--sand); margin: 0; }
+.hoja__titulo h1 { font-family: var(--serif); font-weight: 400; font-size: 2.1rem; line-height: 1.1; margin: 8px 0 0; }
+
+.kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--ink); }
+.kpi { padding: 5mm 4mm 5mm 0; border-bottom: 1px solid var(--line); display: grid; gap: 4px; }
+.kpi__n { font-family: var(--serif); font-size: 2.2rem; line-height: 1; }
+.kpi--destacado .kpi__n { color: var(--barra); }
+.kpi__l { font-size: .8rem; color: var(--muted); }
+
+.bloque h2 { font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin: 0 0 4mm; }
+.dos { display: grid; grid-template-columns: 1fr 1.3fr; gap: 10mm; }
+
+.grafico { width: 100%; }
+.grafico svg { display: block; width: 100%; height: auto; }
+.grafico .eje { font: 10px var(--sans); fill: var(--muted); }
+.grafico .grilla { stroke: #ece7de; stroke-width: 1; }
+.grafico .barra { fill: var(--barra); }
+.grafico .barra:hover { opacity: .75; }
+.grafico .valor { font: 600 10px var(--sans); fill: var(--ink); }
+
+.idiomas { display: grid; gap: 10px; }
+.idioma { display: grid; grid-template-columns: 80px 1fr 44px; gap: 10px; align-items: center; font-size: .85rem; }
+.idioma__pista { height: 10px; background: #f1ede6; border-radius: 0 4px 4px 0; overflow: hidden; }
+.idioma__barra { height: 100%; background: var(--barra); border-radius: 0 4px 4px 0; }
+.idioma__pct { text-align: right; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+.claves { margin: 0; padding-left: 18px; display: grid; gap: 8px; font-size: .9rem; line-height: 1.45; }
+
+.hoja__pie { margin-top: auto; padding-top: 5mm; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 10mm; font-size: .7rem; color: var(--muted); }
+
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+@media (max-width: 860px) {
+  .hoja { width: auto; min-height: 0; margin: 12px; padding: 20px 16px; }
+  .kpis { grid-template-columns: 1fr 1fr; }
+  .dos { grid-template-columns: 1fr; }
+}
+
+@page { size: A4; margin: 0; }
+@media print {
+  html, body { background: #fff; height: 297mm; overflow: hidden; }
+  .sr { display: none; }
+  .panel { display: none; }
+  .hoja { margin: 0; box-shadow: none; width: 210mm; height: 296mm; overflow: hidden; }
+}
